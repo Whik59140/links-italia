@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://whik59140.github.io/incontri-italia-link-showcase/</loc>
+    <lastmod>2023-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Add your list pages with correct paths -->
+  <url>
+    <loc>https://whik59140.github.io/incontri-italia-link-showcase/lists/list-001.md</loc>
+    <lastmod>2023-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Add more list files as needed -->
+</urlset> 

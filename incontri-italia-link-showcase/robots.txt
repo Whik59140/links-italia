@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://whik59140.github.io/incontri-italia-link-showcase/sitemap.xml 
