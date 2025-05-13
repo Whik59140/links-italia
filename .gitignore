@@ -1,0 +1,19 @@
+# Ignore the Python sitemap extractor script
+sitemap_extractor.py
+
+# You can add other files or patterns to ignore below
+# For example, ignore all .env files:
+# *.env
+
+# Ignore Python virtual environment folders often named venv or .venv
+/venv/
+/.venv/
+
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db 
