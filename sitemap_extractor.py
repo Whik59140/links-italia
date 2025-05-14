@@ -49,9 +49,9 @@ if __name__ == "__main__":
     initial_sitemap_url = "https://www.incontri-italia.it/sitemap.xml"
     
     # --- Configuration for Batched Output for GitHub Pages ---
-    output_base_dir = "incontri-italia-link-showcase" # Main directory for the repo content
+    output_base_dir = "." # Main directory for the repo content (current directory)
     lists_subdir = "lists"  # Subdirectory for batched link files
-    batch_size = 75      # Number of URLs per batch file (e.g., 50-100)
+    batch_size = 150      # Number of URLs per batch file (e.g., 50-100)
     readme_filename = "README.md" # Main index file for the repo
     # ----
 
@@ -87,15 +87,15 @@ if __name__ == "__main__":
             batch_filepath = os.path.join(full_lists_path, batch_filename)
             
             # Store relative path for the main README.md
-            relative_batch_path = os.path.join(lists_subdir, batch_filename).replace('\\', '/') # Ensure forward slashes for MD links
+            relative_batch_path = os.path.join(lists_subdir, batch_filename).replace('\\\\', '/') # Ensure forward slashes for MD links
             batch_display_name = f"Link Batch {batch_file_number:03d}"
             batch_files_details.append((batch_display_name, relative_batch_path))
 
             with open(batch_filepath, 'w', encoding='utf-8') as bf:
-                bf.write(f"# Incontri Italia - Link Batch {batch_file_number:03d}\n\n")
-                bf.write(f"This file contains a curated selection of pages from [incontri-italia.it](https://www.incontri-italia.it/), part of a larger collection.\n\n")
-                bf.write(f"See the [main index](../../{readme_filename}) for a full list of batches.\n\n") # Link back to main README
-                bf.write("## Links in this Batch\n\n")
+                bf.write(f"# Incontri Italia - Link Batch {batch_file_number:03d}\\n\\n")
+                bf.write(f"This file contains a curated selection of pages from [incontri-italia.it](https://www.incontri-italia.it/), part of a larger collection.\\n\\n")
+                bf.write(f"See the [main index](../{readme_filename}) for a full list of batches.\\n\\n") 
+                bf.write("## Links in this Batch\\n\\n")
                 for url in current_batch_urls:
                     link_text = url.split('//')[-1] # Basic link text
                     bf.write(f"- [{link_text}]({url})\n")
@@ -136,9 +136,9 @@ if __name__ == "__main__":
         print(f"Total sitemaps processed: {len(processed_sitemap_links)}")
         print(f"Output generated in directory: {os.path.abspath(output_base_dir)}")
         print("\nNext Steps for GitHub Pages:")
-        print(f"1. Review the generated files in the '{output_base_dir}' directory.")
+        print(f"1. Review the generated files in the main project directory (current directory: {os.path.abspath(output_base_dir)}).")
         print(f"2. **Crucially, customize the main {readme_filename}** (especially the 'Welcome!' section) with your detailed website description using the prompts we discussed.")
-        print("3. Create a new public GitHub repository (e.g., name it 'incontri-italia-link-showcase').")
-        print(f"4. Upload the entire contents of the '{output_base_dir}' directory (including the '{readme_filename}' and the 'lists/' subdirectory) to this new GitHub repository.")
-        print("5. Enable GitHub Pages for this repository (Settings -> Pages). ")
+        print("3. Ensure your GitHub repository is set up and public.")
+        print(f"4. Commit and push all generated files (including the '{readme_filename}' and the 'lists/' subdirectory) to your GitHub repository.")
+        print("5. Enable GitHub Pages for this repository (Settings -> Pages), ensuring it deploys from the root of your chosen branch.")
         print("6. Submit your GitHub Pages site URL to Google Search Console and Bing Webmaster Tools.") 
